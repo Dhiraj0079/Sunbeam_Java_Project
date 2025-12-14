@@ -1,0 +1,131 @@
+package Marcos;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.Comparator;
+
+
+	public class Student{
+		int  rollno;
+		String name;
+		double per;
+	   Student(int rollno,String name,double per){
+		   this.rollno=rollno;
+		   this.name=name;
+		   this.per=per;
+	   }
+	   void Display() {
+		   System.out.println("\nrollno "+rollno+"\nname "+name+"\nper "+per);
+	   }
+	
+public class Tester {
+	
+	 	
+	    public static void main(String[] args) {
+	    	List<Student>students=new ArrayList<> ();
+	    	Scanner sc=new Scanner(System.in);
+	    	
+	    	int choice;
+	    	do {
+	            System.out.println("\n--- Student Menu ---");
+	            System.out.println("1. Add Student");
+	            System.out.println("2. Display All Students");
+	            System.out.println("3. Search Student by Roll No");
+	            System.out.println("4. Sort Students by Roll No");
+	            System.out.println("5. Sort Students by Name");
+	            System.out.println("6. Sort Students by Marks");
+	            System.out.println("7. Exit");
+	            System.out.print("Enter your choice: ");
+	            choice=sc.nextInt();
+	            switch (choice) {
+	            case 1:
+	            	System.out.println("Enter roll no" );
+	            	int rollno=sc.nextInt();
+	            	sc.nextLine();
+	            	System.out.println("Enter name");
+	            	String name=sc.nextLine();
+	            	System.out.println("Enter Percentage");
+	            	double per=sc.nextDouble();
+	            	sc.nextLine();
+	            	students.add(new Student(rollno,name,per));
+	            	System.out.println("Student added succesfully");
+	            	break;
+	            case 2:
+	            	if(students.isEmpty()) {
+	                	System.out.println("No student to display");
+
+	            	}
+	            	else {
+	            		for(Student s:students) {
+	                    	s.Display();
+
+	            		}
+	            	}
+	            	break;
+	            case 3:
+	            	System.out.println("Enter roll no for searching");
+
+	            	if(students.isEmpty()) {
+	                	System.out.println("no any student is present");
+	                  }
+
+	            	else {
+	            		int search=sc.nextInt();
+	            		boolean found=false;
+	            		for(Student s:students) {
+	            	 		
+	            	    	if(search==s.rollno) {
+	                        	System.out.println("student found");
+	                        	s.Display();
+	                        	found=true;
+	                    	
+
+	            		}
+	            		}
+	            	    	if(!found) {
+	                        	System.out.println("student not found");
+
+	            	    	
+	            	    	
+	            		}
+	            		
+	            	}
+	            	break;
+	            case 4:
+	            	Collections.sort(students,Comparator.comparingInt(s->s.rollno));
+	            	System.out.println("student sort by roll no");
+	            	break;
+	            case 5:
+	            	Collections.sort(students,Comparator.comparing(s->s.name));
+	            	System.out.println("student sort by name");
+	            	break;
+	            case 6:
+	            	Collections.sort(students,Comparator.comparingDouble(s->s.per));
+	            	System.out.println("student sort by percentage");
+	            	break;
+	            case 7:
+	            	System.out.println("End");
+	            	break;
+	            	
+	            	default:
+	                	System.out.println("Invalid choice,Try again");
+
+
+
+
+
+
+
+	            	
+	    		
+	            }  	
+	            }while(choice!=7);
+	    	sc.close();
+
+		}
+	}
+
+
+
