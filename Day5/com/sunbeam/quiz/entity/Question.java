@@ -1,0 +1,81 @@
+package com.sunbeam.quiz.entity;
+
+import java.util.*;
+
+public class Question {
+	Scanner sc= new Scanner(System.in);
+	public int questionId;
+	public int quizId;
+	public String text;
+	public String a;
+	public String b;
+	public String c;
+	public String d;
+	public char correct;
+	public int getquestionId() {
+		return questionId;
+	}
+	public void setquestionId(int questionId) {
+		this.questionId = questionId;
+	}
+	public int getQuizId() {
+		return quizId;
+	}
+	public void setQuizId(int quizId) {
+		this.quizId = quizId;
+	}
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public String getA() {
+		return a;
+	}
+	public void setA(String a) {
+		this.a = a;
+	}
+	public String getB() {
+		return b;
+	}
+	public void setB(String b) {
+		this.b = b;
+	}
+	public String getC() {
+		return c;
+	}
+	public void setC(String c) {
+		this.c = c;
+	}
+	public String getD() {
+		return d;
+	}
+	public void setD(String d) {
+		this.d = d;
+	}
+	public char getCorrect() {
+		return correct;
+	}
+	public void setCorrect(char correct) {
+		this.correct = correct;
+	}
+	public Question() {
+		
+	}
+	public Question(int questionId, int quizId, String text, String a, String b, String c, String d, char correct) {
+		super();
+		this.questionId = questionId;
+		this.quizId = quizId;
+		this.text = text;
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		this.d = d;
+		this.correct = correct;
+	}
+	
+	
+
+}
+
